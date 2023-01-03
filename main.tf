@@ -52,14 +52,14 @@ resource "aws_instance" "server_east" {
   vpc_security_group_ids      = [aws_security_group.east-test-sg.id]
   subnet_id                   = aws_default_subnet.private_subnet.id
   associate_public_ip_address = true
-  user_data = <<EOF
+  /*user_data = <<EOF
               #!/bin/bash
               sudo yum update -y
               sudo yum install -y httpd
               sudo systemctl start httpd
               sudo systemctl enable httpd
               echo "<h1>Hello world from $(hostname -f)</h1>" | sudo tee -a /var/www/html/index.html
-              EOF
+              EOF*/
   provisioner "remote-exec" { #used to execute remotely commands
     inline = [
       "mkdir -p /var/www/html && touch var/www/html/index.html"
