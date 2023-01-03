@@ -153,3 +153,4 @@ resource "aws_security_group_rule" "west-test-ssh-out" {
   cidr_blocks       = local.all_ips
   type              = "egress"
 }
+#I like this code
